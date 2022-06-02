@@ -5,7 +5,11 @@
   background-color: rgb(220, 218, 214);
   border-radius: 8px;
   border: 1px solid #be61ed;
-  height: 20px;
+  height: 40px;
+  width: 130px;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%, 0);
 }
 .search-form {
   position: relative;
@@ -95,4 +99,3 @@ img {
   margin: 7px;
   transition: transform, 250ms, linear;
 }
- 
