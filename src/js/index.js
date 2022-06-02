@@ -2,7 +2,7 @@ import Notiflix from 'notiflix';
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 import { form, input, loadMore, gallery } from './refs';
-import { fetchImgParams, searchImage } from './searchApi';
+import { searchImage } from './searchApi';
 import imgTemplate from '../hbs/img-template.hbs';
 
 const lightbox = new SimpleLightbox('.photo-link', {
@@ -16,15 +16,23 @@ function clearData() {
 }
 
 async function searchImages(e) {
-  clearData;
   e.preventDefault();
-  fetchImgParams.q = e.target.elements.searchQuery.value;
-  if (fetchImgParams.q === '') {
-       Notiflix.Notify.failure(
+  
+  const { elements: {searchQuery} } = e.target;
+  
+  const queryValue = searchQuery.value.trim();
+  
+  if (queryValue === '') {
+    return Notiflix.Notify.failure(
       'Please enter something in search field'
     );
-    return;
   }  
+  
+  searchImage(queryValue)
+    .then(res => console.log(res)
+    .catch((err) => console.error(err))
+  
+  clearData();
 }
 
 form.addEventListener('submit', searchImages);
