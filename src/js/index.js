@@ -49,7 +49,7 @@ async function searchImages(e) {
 function loadMoreHandler() {
   currentPage++;
   loadMore.style.display = 'none';
-  searchImage(queryValue, currentPage, LIMIT).then(data => searchImages(data));
+  // searchImage(queryValue, currentPage, LIMIT).then(data => searchImages(data));
 }
 
 
