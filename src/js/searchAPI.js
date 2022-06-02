@@ -1,13 +1,29 @@
 import axios from 'axios';
 
-export default async (name, page, limit) => {
-  try {
-    const response = await axios.get(
-      `https://pixabay.com/api/?image_type=photo&safesearch=true&orientation=horizontal&q=${name}&page=${page}&per_page=${limit}&key=27690883-978e56c4f986dc8399e7ca8d2`
-    );
+const BASIC_URL = 'https://pixabay.com/api/';
+const URL_KEY = '27690883-978e56c4f986dc8399e7ca8d2';
 
-    return response.data;
+export const fetchImgParams = {
+  q: "",
+  image_type: "photo",
+  orientation: "horizontal",
+  safesearch: true,
+  page: 1,
+  per_page: 40
+};
+
+const customAxios = axios.create({
+  baseURL: BASIC_URL
+});
+
+export const searchImage = async (params) => {
+  try {
+    const { data } = await customAxios.get("", {
+      params: { ...params, key: URL_KEY }
+    });
+    return data;
   } catch (error) {
     return error;
   }
 };
+
