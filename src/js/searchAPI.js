@@ -18,13 +18,8 @@ const customAxios = axios.create({
 
 export const searchImage = async (query) => {
   try {
-<<<<<<< Updated upstream
     const { data } = await customAxios.get("", {
       params: { ...fetchImgParams, q: query, key: URL_KEY }
-=======
-    const { data } = await customAxios.get('', {
-      params: { ...fetchImgParams, query, key: URL_KEY },
->>>>>>> Stashed changes
     });
     return data;
   } catch (error) {
