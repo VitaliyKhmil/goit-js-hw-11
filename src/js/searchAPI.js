@@ -5,20 +5,22 @@ const URL_KEY = '27690883-978e56c4f986dc8399e7ca8d2';
 
 export const fetchImgParams = {
   key: URL_KEY,
-  image_type: "photo",
-  orientation: "horizontal",
+  image_type: 'photo',
+  orientation: 'horizontal',
   safesearch: true,
-  per_page: 40
+  q: '',
+  page: 1,
+  per_page: 40,
 };
 
 const customAxios = axios.create({
-  baseURL: BASIC_URL
+  baseURL: BASIC_URL,
 });
 
-export const searchImage = async (query) => {
+export const searchImage = async fetchImgParams => {
   try {
-    const { data } = await customAxios.get("", {
-      params: { ...fetchImgParams, q: query, key: URL_KEY }
+    const { data } = await customAxios.get('', {
+      params: { ...fetchImgParams, key: URL_KEY },
     });
     return data;
   } catch (error) {

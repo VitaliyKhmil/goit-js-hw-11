@@ -2,11 +2,11 @@
   display: none;
   margin-left: 10px;
   cursor: pointer;
-  background-color: rgb(220, 218, 214);
-  border-radius: 8px;
-  border: 1px solid #be61ed;
+  background-color: rgb(107, 236, 236);
+  border-width: 1px;
+  border-color: #000;
   height: 40px;
-  width: 130px;
+  width: 300px;
   position: relative;
   left: 50%;
   transform: translate(-50%, 0);
@@ -16,14 +16,18 @@
   align-items: center;
   background-color: rgb(107, 236, 236);
 }
+.search-form input {
+  height: 35px;
+  width: 300px;
+  padding-left: 8px;
+}
 .container {
   position: fixed;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100vw;
-  padding-top: 15px;
-  padding-bottom: 15px;
+  height: 100px;
   background-color: rgb(107, 236, 236);
   z-index: 10;
 }
@@ -31,10 +35,16 @@
 .btn {
   margin-left: 10px;
   cursor: pointer;
-  background-color: rgb(220, 218, 214);
-  border-radius: 8px;
-  border: 1px solid #be61ed;
-  height: 20px;
+  background-color: transparent;
+  border-width: 1px;
+  border-color: #000;
+  width: 100px;
+  height: 40px;
+}
+
+.load-more:hover,
+.btn:hover {
+  background-color: gray;
 }
 .image-card {
   height: 250px;
